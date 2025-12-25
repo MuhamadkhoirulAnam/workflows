@@ -7,12 +7,10 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Install Tailscale
-        run: |
-          choco install tailscale -y
+        run: choco install tailscale -y
 
-      - name: Connect to Tailscale
-        run: |
-          tailscale up --authkey ${{ secrets.TAILSCALE_AUTHKEY }} --hostname github-rdp
+      - name: Connect Tailscale
+        run: tailscale up --authkey ${{ secrets.TAILSCALE_AUTHKEY }} --hostname github-rdp
 
       - name: Enable RDP
         run: |
